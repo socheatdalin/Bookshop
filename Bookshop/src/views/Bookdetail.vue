@@ -44,28 +44,33 @@
                 </div>
                 <h1 class="mx-5">Relate book</h1>
                 <div class="book m-2 my-2">
-                                <div class="item  ">
-                                        <img alt="book logo" class="logo rounded mx-auto d-block m-2" src="@/assets/images/book6.jpg" width="125" height="170" />
-                                        <h3>Diffferent winter</h3>
-                                        <div class="d-flex justify-content-around">
-                                                <h4>Price: 8$ </h4>
-                                                <RouterLink to="/detail">see more</RouterLink>
+                                <div class="item position-relative" id="item">
+                                        <div class="object-fit-cover">
+                                              <img alt="book logo" class="logo rounded mx-auto"
+                                                src="@/assets/images/book15.jpg"  />
+                                                <h3>កូនអុកសម្ងាត់</h3>    
+                                        </div>
+                                      
+                                        <div class="">
+                                                <h4 class="price mx-3">Price: 8$ </h4>
+                                                <RouterLink to="/detail" class="see mx-3">see more</RouterLink>
                                         </div>
                                 </div>
-                                <div class="item ">
-                                        <img alt="book logo" class="logo rounded mx-auto d-block m-2" src="@/assets/images/book5.jpg" width="160" height="170" />
+                                <div class="item position-relative">
+                                        <img alt="book logo" class="logo rounded mx-auto " src="@/assets/images/book5.jpg" />
                                         <h3>ស្ដេចម៉ែស្ដេចកូន</h3>
-                                        <div class="d-flex justify-content-around">
-                                                <RouterLink to="/detail">see more</RouterLink>
+                                        <div class="">
+                                                <h4 class="price mx-3">Price: 8$</h4>
+                                                <RouterLink to="/detail" class="see mx-3">see more</RouterLink>
                                         </div>
                                         
                                 </div>
-                                <div class="item ">
-                                        <img alt="book logo" class="logo rounded mx-auto d-block m-2" src="@/assets/images/book1.jpg" width="160" height="180" />
+                                <div class="item position-relative">
+                                        <img alt="book logo" class="logo rounded mx-auto " src="@/assets/images/book1.jpg"  />
                                         <h3>One mission</h3>
-                                        <div class="d-flex justify-content-around">
-                                                 <h4 >Price: 6$ </h4>
-                                                 <RouterLink to="/detail">see more</RouterLink>
+                                        <div class="">
+                                                 <h4 class="price mx-3">Price: 6$ </h4>
+                                                 <RouterLink to="/detail" class="see mx-3">see more</RouterLink>
                                         </div>
                                        
                                 </div>

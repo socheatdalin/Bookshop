@@ -12,32 +12,32 @@
                         <h2>New Releases</h2>
                         <div>
                                 <div class="book">
-                                        <div class="item " id="item">
-                                                <img alt="book logo" class="logo img-fluid rounded mx-auto d-block m-2"
+                                        <div class="item position-relative" id="item">
+                                                <img alt="book logo" class="logo border rounded mx-auto "
                                                         src="@/assets/images/book11.jpg"  />
                                                 <h3>មឈូសកូនបង</h3>
-                                                <div class="d-flex justify-content-around detail">
-                                                        <h4>Price: 9$ </h4>
-                                                        <RouterLink to="/detail" class="see">see more</RouterLink>
+                                                <div class="">
+                                                       <h4 class="price mx-3"> Price: 9$ </h4>
+                                                        <RouterLink to="/detail" class="see mx-3">see more</RouterLink>
                                                 </div>
                                         </div>
-                                        <div class="item " id="item">
-                                                <img alt="book logo" class="logo img-fluid rounded mx-auto m-2"
+                                        <div class="item position-relative" id="item">
+                                                <img alt="book logo" class="logo border rounded mx-auto"
                                                         src="@/assets/images/book15.jpg"  />
                                                 <h3>កូនអុកសម្ងាត់</h3>
-                                                <div class="d-flex justify-content-around detail">
-                                                        <h4>Price: 8$ </h4>
-                                                        <RouterLink to="/detail" class="see">see more</RouterLink>
+                                                <div class="">
+                                                        <h4 class="price mx-3">Price: 8$ </h4>
+                                                        <RouterLink to="/detail" class="see mx-3">see more</RouterLink>
                                                 </div>
 
                                         </div>
-                                        <div class="item " id="item">
-                                                <img alt="book logo" class="logo img-fluid rounded mx-auto d-block m-2"
+                                        <div class="item position-relative" id="item">
+                                                <img alt="book logo" class="logo border rounded mx-auto "
                                                         src="@/assets/images/book7.jpg" />
                                                 <h3>អព្ទ័</h3>
-                                                <div class="d-flex justify-content-around detail">
-                                                        <h4>Price: 6$ </h4>
-                                                        <RouterLink to="/detail" class="see">see more</RouterLink>
+                                                <div class="">
+                                                        <h4 class="price mx-3">Price: 6$ </h4>
+                                                        <RouterLink to="/detail" class="see mx-3">see more</RouterLink>
                                                 </div>
 
                                         </div>
@@ -48,31 +48,31 @@
                                 <div>
                                         <div class="book">
                                                 <div class="item  " id="item">
-                                                        <img alt="book logo" class="logo img-fluid rounded mx-auto d-block m-2"
+                                                        <img alt="book logo" class="logo border rounded mx-auto "
                                                                 src="@/assets/images/book2.jpg"  />
                                                         <h3>ព្រះនាងមុខ១០០០​និង​គ្រោះទាំង៧</h3>
-                                                        <div class="d-flex justify-content-around detail">
-                                                                <h4>Price: 9$ </h4>
-                                                                <RouterLink to="/detail" class="see">see more</RouterLink>
+                                                        <div class="">
+                                                                <h4 class="price mx-3">Price: 9$ </h4>
+                                                                <RouterLink to="/detail" class="see mx-3">see more</RouterLink>
                                                         </div>
                                                 </div>
                                                 <div class="item " id="item">
-                                                        <img alt="book logo" class="logo img-fluid rounded mx-auto d-block m-2"
+                                                        <img alt="book logo" class="logo border rounded mx-auto "
                                                                 src="@/assets/images/book11.jpg"  />
                                                         <h3>មឈូសកូនបង</h3>
-                                                        <div class="d-flex justify-content-around detail">
-                                                                <h4>Price: 9$ </h4>
-                                                                <RouterLink to="/detail" class="see">see more</RouterLink>
+                                                        <div class="">
+                                                                <h4 class="price mx-3">Price: 9$ </h4>
+                                                                <RouterLink to="/detail" class="see mx-3">see more</RouterLink>
                                                         </div>
 
                                                 </div>
                                                 <div class="item " id="item">
-                                                        <img alt="book logo" class="logo img-fluid rounded mx-auto d-block m-2"
+                                                        <img alt="book logo" class="logo border rounded mx-auto"
                                                                 src="@/assets/images/book8.jpg"  />
                                                         <h3>YOU ទំព័រចុងក្រោយ</h3>
-                                                        <div class="d-flex justify-content-around detail">
-                                                                <h4>Price: 7$ </h4>
-                                                                <RouterLink to="/detail" class="see">see more</RouterLink>
+                                                        <div class="">
+                                                                <h4 class="price mx-3">Price: 7$ </h4>
+                                                                <RouterLink to="/detail" class="see mx-3">see more</RouterLink>
                                                         </div>
 
                                                 </div>
@@ -83,32 +83,32 @@
                                 <h2>Result</h2>
                                 <div>
                                         <div class="book">
-                                                <div class="item  " id="item">
-                                                        <img alt="book logo" class="logo img-fluid rounded mx-auto d-block m-2"
-                                                                src="@/assets/images/book2.jpg" width="125" height="150" />
+                                                <div class="item position-relative " id="item">
+                                                        <img alt="book logo" class="logo border rounded mx-auto "
+                                                                src="@/assets/images/book2.jpg"  />
                                                         <h3>ព្រះនាងមុខ១០០០​និង​គ្រោះទាំង៧</h3>
-                                                        <div class="d-flex justify-content-around detail">
-                                                                <h4>Price: 9$ </h4>
-                                                                <RouterLink to="/detail" class="see">see more</RouterLink>
+                                                        <div class="">
+                                                                <h4 class="price mx-3">Price: 9$ </h4>
+                                                                <RouterLink to="/detail" class="see mx-3">see more</RouterLink>
                                                         </div>
                                                 </div>
-                                                <div class="item " id="item">
-                                                        <img alt="book logo" class="logo img-fluid rounded mx-auto d-block m-2"
-                                                                src="@/assets/images/book11.jpg" width="160" height="170" />
+                                                <div class="item position-relative" id="item">
+                                                        <img alt="book logo" class="logo border rounded mx-auto "
+                                                                src="@/assets/images/book11.jpg"  />
                                                         <h3>មឈូសកូនបង</h3>
-                                                        <div class="d-flex justify-content-around detail">
-                                                                <h4>Price: 9$ </h4>
-                                                                <RouterLink to="/detail" class="see">see more</RouterLink>
+                                                        <div class="">
+                                                                <h4 class="price mx-3">Price: 9$ </h4>
+                                                                <RouterLink to="/detail" class="see mx-3">see more</RouterLink>
                                                         </div>
 
                                                 </div>
-                                                <div class="item " id="item">
-                                                        <img alt="book logo" class="logo img-fluid rounded mx-auto d-block m-2"
-                                                                src="@/assets/images/book8.jpg" width="160" height="180" />
+                                                <div class="item position-relative" id="item">
+                                                        <img alt="book logo" class="logo border rounded mx-auto "
+                                                                src="@/assets/images/book8.jpg" />
                                                         <h3>YOU ទំព័រចុងក្រោយ</h3>
-                                                        <div class="d-flex justify-content-around detail">
-                                                                <h4>Price: 7$ </h4>
-                                                                <RouterLink to="/detail" class="see">see more</RouterLink>
+                                                        <div class="">
+                                                                <h4 class="price mx-3">Price: 7$ </h4>
+                                                                <RouterLink to="/detail" class="see mx-3">see more</RouterLink>
                                                         </div>
 
                                                 </div>
@@ -120,13 +120,6 @@
 </template>
 
 <style>
-.item{
-        position: relative;
-}
-.deatil{
-        position: absolute;
-
-}
 .genre {
         background-color: #B3A2A2;
         color: white;
@@ -135,6 +128,9 @@
         margin: 5px;
         width: 100px;
         height: 35px;
+}
+.genre:hover{
+        background-color: #978080;
 }
 h2{
         margin: 5px;

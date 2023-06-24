@@ -2,9 +2,8 @@
         <header style="background-color:#978080;">
                 <div class="ALL  border border-dark">
                         <div class="m-1">
-                                <img alt="book logo" class="logo "  src="@/assets/logo.svg" width="80" height="70" />
-                                <!-- <h5 class="name"></h5> -->
-                                <h3 class="mx-5">Leorio</h3>
+                                <img alt="book logo" class=" "  src="@/assets/logo.svg" width="80" height="70" />
+                                <h3 class="mx-1">Leorio</h3>
                         </div>
                         <div class="wrapper">
                                 <nav >
