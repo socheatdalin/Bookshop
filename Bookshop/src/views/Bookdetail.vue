@@ -1,4 +1,20 @@
+<script>
+        import headerView from '../components/HeaderView.vue'
+
+        export default {
+                components: {
+                        headerView
+                },
+                mounted(){
+
+                        function routeto(){
+                                location.href = '/cart';
+                        }
+                }
+        }
+</script>
 <template>
+        <headerView />
         <div class="" style="background-color: #DBCECE;">
                 <h3 class="p-3"> Home>novel</h3>
                 <div class="d-flex justify-content-around row">
@@ -85,13 +101,3 @@
 }
 </style>
 
-<script>
-        export default{
-        mounted(){
-
-                function routeto(){
-                        location.href = '/cart';
-                }
-        }
-}
-</script>

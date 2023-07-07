@@ -1,4 +1,15 @@
+<script>
+        import headerView from '../components/HeaderView.vue'
+
+        export default {
+                components: {
+                        headerView
+                }
+        }
+</script>
+
 <template>
+        <headerView />
         <div class="" style="background-color: #DBCECE;">
                 <h1 class="mx-5">Home > Product</h1>
                 <div class="d-flex mx-5">
@@ -47,7 +58,7 @@
                                 <h2>Best Seller</h2>
                                 <div>
                                         <div class="book">
-                                                <div class="item  " id="item">
+                                                <div class="item " id="item">
                                                         <img alt="book logo" class="logo border rounded mx-auto "
                                                                 src="@/assets/images/book2.jpg"  />
                                                         <h3>ព្រះនាងមុខ១០០០​និង​គ្រោះទាំង៧</h3>

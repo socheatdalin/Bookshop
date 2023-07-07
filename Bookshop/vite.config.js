@@ -5,7 +5,7 @@ import vue from '@vitejs/plugin-vue'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  bash: '/Leorio_shop.github.io',
+  base: '/Leorio_shop.github.io',
   plugins: [
     vue(),
   ],

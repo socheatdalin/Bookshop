@@ -1,4 +1,15 @@
+<script>
+        import headerView from '../components/HeaderView.vue'
+
+        export default {
+                components: {
+                        headerView
+                }
+        }
+</script>
+
 <template >
+        <headerView />
         <div class="contain ">
                 <img src="../assets/About.jpg" alt="" class=" about">
 

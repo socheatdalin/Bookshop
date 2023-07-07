@@ -1,4 +1,15 @@
+<script>
+        import headerView from '../components/HeaderView.vue'
+
+        export default {
+                components: {
+                        headerView
+                }
+        }
+</script>
+
 <template>
+        <headerView />
         <div class="vh-100 border border-dark" style="background-color: #DBCECE;">
                <h1 class="mx-2">Home > Cart</h1>
                 <h3 class="mx-5 my-3">My Cart</h3>

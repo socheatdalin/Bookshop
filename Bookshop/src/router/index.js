@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import authApi from '@/libs/apis/auth'
+// import HomeView from '../views/HomeView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -7,7 +8,7 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: HomeView
+      component: () => import('../views/HomeView.vue')
     },
     {
       path: '/cart',
@@ -19,7 +20,7 @@ const router = createRouter({
     },
     {
       path: '/login',
-      name: 'login',
+      name: 'auth/login',
       component: () => import('../views/LoginView.vue')
     },
     {
@@ -39,7 +40,25 @@ const router = createRouter({
       name: 'about',
       component:() => import('../views/AboutView.vue')
     } ,
+    {
+      path: '/register',
+      name: 'auth/register',
+      component:() => import('../views/RegisterView.vue')
+    } ,
+    {
+      path: '/userhome',
+      name: 'userhomepage',
+      component:() => import('../views/HomeView2.vue')
+    } ,
   ]
 })
+
+// router.beforeEach(async (to, from, next) => {
+//   const me = await authApi.getMe();
+//   const isAuthenticated = !!me
+//   if (to.name.includes('home') && !isAuthenticated) next({ name: 'auth/login' })
+//   if (to.name.includes('auth') && isAuthenticated) next({ name: 'home' })
+//   else next()
+// })
 
 export default router

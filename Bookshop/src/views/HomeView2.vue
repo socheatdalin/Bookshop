@@ -1,27 +1,28 @@
 <script>
-import headerView from '../components/HeaderView.vue'
+import  Header2 from '../components/Header2.vue';
 import bookApi from "../libs/apis/book";
 import categoryApi from '../libs/apis/category';
 
 export default {
         components: {
-                headerView
+                Header2
         },
         data() {
                 return {
+                        categories: [],
                         books: [],
                 };
         },
         async mounted() {
                 // this.categories = await categoryApi.all()
-                this.books = await bookApi.all()
+                this.books = await bookApi.all();
         }
 };
 
 </script>
 
 <template>
-        <headerView />
+        <Header2/>
         <div class="h-100" style="background-color: #DBCECE;">
                 <div class="image">
                         <img src="@/assets/bg.svg" class="img-fluid " alt="Responsive image">
