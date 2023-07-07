@@ -58,7 +58,7 @@
                                 <h2>Best Seller</h2>
                                 <div>
                                         <div class="book">
-                                                <div class="item " id="item">
+                                                <div class="item position-relative " id="item">
                                                         <img alt="book logo" class="logo border rounded mx-auto "
                                                                 src="@/assets/images/book2.jpg"  />
                                                         <h3>ព្រះនាងមុខ១០០០​និង​គ្រោះទាំង៧</h3>
@@ -67,7 +67,7 @@
                                                                 <RouterLink to="/detail" class="see mx-3">see more</RouterLink>
                                                         </div>
                                                 </div>
-                                                <div class="item " id="item">
+                                                <div class="item position-relative " id="item">
                                                         <img alt="book logo" class="logo border rounded mx-auto "
                                                                 src="@/assets/images/book11.jpg"  />
                                                         <h3>មឈូសកូនបង</h3>
@@ -77,7 +77,7 @@
                                                         </div>
 
                                                 </div>
-                                                <div class="item " id="item">
+                                                <div class="item position-relative " id="item">
                                                         <img alt="book logo" class="logo border rounded mx-auto"
                                                                 src="@/assets/images/book8.jpg"  />
                                                         <h3>YOU ទំព័រចុងក្រោយ</h3>
@@ -131,6 +131,9 @@
 </template>
 
 <style>
+.logo{
+        width: 5%;
+}
 .genre {
         background-color: #B3A2A2;
         color: white;

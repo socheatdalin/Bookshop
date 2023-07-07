@@ -1,5 +1,5 @@
 <script>
-import  Header2 from '../components/Header2.vue';
+import Header2 from '../components/Header2.vue';
 import bookApi from "../libs/apis/book";
 import categoryApi from '../libs/apis/category';
 
@@ -22,7 +22,7 @@ export default {
 </script>
 
 <template>
-        <Header2/>
+        <Header2 />
         <div class="h-100" style="background-color: #DBCECE;">
                 <div class="image">
                         <img src="@/assets/bg.svg" class="img-fluid " alt="Responsive image">
@@ -36,23 +36,106 @@ export default {
                         </svg>
                 </div>
                 <div class="booklist ">
+
+
                         <div class="book">
-                                <div class="inforn grid grid-cols-3 w-4/5 h-98">
-                                        <div class="book" v-for="book in books" :key="book._id">
-                                                <div class="w-62 border border-black m-5 p-5 h-72">
-                                                        <!-- <div>{{ product.imageUrl }}</div> -->
-                                                        <div class="flex justify-center"><img :src="book.imageUrl" alt=""
-                                                                        style="width: 130px; height: 150px;"></div>
-                                                        <div class="text-center"> {{ book.name }} </div>
-                                                        <div class="m-2 mt-3">
-                                                                <h2>Shop: </h2>
-                                                                <p>Desc: <span class="pl-2">{{ book.desc }}</span></p>
-                                                        </div>
-                                                        <div></div>
-                                                </div>
+                                <div class="item position-relative" id="item">
+                                        <img alt="book logo" class="logo border rounded mx-auto "
+                                                src="@/assets/images/book11.jpg" />
+                                        <h3>មឈូសកូនបង</h3>
+                                        <div class="">
+                                                <h4 class="price mx-3"> Price: 9$ </h4>
+                                                <RouterLink to="/detail" class="see mx-3">see more</RouterLink>
                                         </div>
                                 </div>
+                                <div class="item position-relative" id="item">
+                                        <img alt="book logo" class="logo border rounded mx-auto"
+                                                src="@/assets/images/book15.jpg" />
+                                        <h3>កូនអុកសម្ងាត់</h3>
+                                        <div class="">
+                                                <h4 class="price mx-3">Price: 8$ </h4>
+                                                <RouterLink to="/detail" class="see mx-3">see more</RouterLink>
+                                        </div>
+
+                                </div>
+                                <div class="item position-relative" id="item">
+                                        <img alt="book logo" class="logo border rounded mx-auto "
+                                                src="@/assets/images/book7.jpg" />
+                                        <h3>អព្ទ័</h3>
+                                        <div class="">
+                                                <h4 class="price mx-3">Price: 6$ </h4>
+                                                <RouterLink to="/detail" class="see mx-3">see more</RouterLink>
+                                        </div>
+
+                                </div>
                         </div>
+
+
+                        <div class="book">
+                                <div class="item position-relative" id="item">
+                                        <img alt="book logo" class="logo border rounded mx-auto "
+                                                src="@/assets/images/book2.jpg" />
+                                        <h3>ព្រះនាងមុខ១០០០​និង​គ្រោះទាំង៧</h3>
+                                        <div class="">
+                                                <h4 class="price mx-3">Price: 9$ </h4>
+                                                <RouterLink to="/detail" class="see mx-3">see more</RouterLink>
+                                        </div>
+                                </div>
+                                <div class="item position-relative" id="item">
+                                        <img alt="book logo" class="logo border rounded mx-auto "
+                                                src="@/assets/images/book11.jpg" />
+                                        <h3>មឈូសកូនបង</h3>
+                                        <div class="">
+                                                <h4 class="price mx-3">Price: 9$ </h4>
+                                                <RouterLink to="/detail" class="see mx-3">see more</RouterLink>
+                                        </div>
+
+                                </div>
+                                <div class="item position-relative" id="item">
+                                        <img alt="book logo" class="logo border rounded mx-auto"
+                                                src="@/assets/images/book8.jpg" />
+                                        <h3>YOU ទំព័រចុងក្រោយ</h3>
+                                        <div class="">
+                                                <h4 class="price mx-3">Price: 7$ </h4>
+                                                <RouterLink to="/detail" class="see mx-3">see more</RouterLink>
+                                        </div>
+
+                                </div>
+                        </div>
+
+
+                        <div class="book">
+                                <div class="item position-relative " id="item">
+                                        <img alt="book logo" class="logo border rounded mx-auto "
+                                                src="@/assets/images/book2.jpg" />
+                                        <h3>ព្រះនាងមុខ១០០០​និង​គ្រោះទាំង៧</h3>
+                                        <div class="">
+                                                <h4 class="price mx-3">Price: 9$ </h4>
+                                                <RouterLink to="/detail" class="see mx-3">see more</RouterLink>
+                                        </div>
+                                </div>
+                                <div class="item position-relative" id="item">
+                                        <img alt="book logo" class="logo border rounded mx-auto "
+                                                src="@/assets/images/book11.jpg" />
+                                        <h3>មឈូសកូនបង</h3>
+                                        <div class="">
+                                                <h4 class="price mx-3">Price: 9$ </h4>
+                                                <RouterLink to="/detail" class="see mx-3">see more</RouterLink>
+                                        </div>
+
+                                </div>
+                                <div class="item position-relative" id="item">
+                                        <img alt="book logo" class="logo border rounded mx-auto "
+                                                src="@/assets/images/book8.jpg" />
+                                        <h3>YOU ទំព័រចុងក្រោយ</h3>
+                                        <div class="">
+                                                <h4 class="price mx-3">Price: 7$ </h4>
+                                                <RouterLink to="/detail" class="see mx-3">see more</RouterLink>
+                                        </div>
+
+                                </div>
+                        </div>
+
                 </div>
         </div>
 </template>
@@ -122,4 +205,5 @@ export default {
                 height: 350px;
         }
 
-}</style>
+}
+</style>
