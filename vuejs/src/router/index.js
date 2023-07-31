@@ -7,7 +7,8 @@ import RegisterView from '../views/RegisterView.vue'
 import ProductView from '../views/ProductView.vue'
 import BookDetail from '../views/BookDetail.vue'
 import CartView from '../views/CartView.vue'
-
+import Category from '../views/Dashboard/pages/category.vue';
+import Book from '../views/Dashboard/pages/book.vue';
 
 const router = createRouter({
         history: createWebHistory(import.meta.env.BASE_URL),
@@ -48,7 +49,8 @@ const router = createRouter({
                         component: BookDetail
                 },
                 {
-                        path: '/cart/:Cid',
+                        // path: '/cart/:Cid',
+                        path: '/cart/',
                         name: 'cart',
                         component: CartView
                 },
@@ -58,19 +60,41 @@ const router = createRouter({
                         component:  () => import('../views/ProductView2.vue')
                 },
                 {
-                        path: '/payment/:Pid',
+                        // path: '/payment/:Pid',
+                        path: '/payment',
                         name: 'payment',
                         component:  () => import('../views/PaymentView.vue')
                 },
-                
+                {
+                        path: '/dashboard',
+                        name: 'dashboard',
+                        component:  () => import('../views/Dashboard/DashboardView.vue'),
+                        children:[
+                                {
+                                        path: 'book',
+                                        name:'dashboard/book',
+                                        component:Book,
+                                },
+                                {
+                                        path: 'category',
+                                        name:'dashboard/category',
+                                        component: Category
+                                }
+                        ]
+                },
+                {
+                        path: '/test',
+                        name: 'test',
+                        component:  () => import('../views/test.vue')
+                },
         ]
 })
-// router.beforeEach(async (to, from, next) => {
-//         const me = await authApi.getMe();
-//         const isAuthenticated = !!me
-//         if (to.name.includes('detail') && !isAuthenticated) next({ name: 'auth/login' })
-//         if (to.name.includes('auth') && isAuthenticated) next({ name: 'home2' })
-//         else next()
-// })
+router.beforeEach(async (to, from, next) => {
+        const me = await authApi.getMe();
+        const isAuthenticated = !!me
+        if (to.name.includes('dashboard') && !isAuthenticated) next({ name: 'auth/login' })
+        if (to.name.includes('auth') && isAuthenticated) next({ name: 'dashboard' })
+        else next()
+      })
 
 export default router

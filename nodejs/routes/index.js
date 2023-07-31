@@ -8,7 +8,7 @@ router.use('/auth', require('./auth'));
 router.use('/user', require('./user'));
 router.use('/category', require('./category'));
 router.use('/book', require('./book'));
-// router.use('/price', require('./price'));
-
+router.use('/payment', require('./payment'));
+// 
 
 module.exports = router;

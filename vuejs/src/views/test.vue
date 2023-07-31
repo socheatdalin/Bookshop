@@ -1,25 +1,25 @@
 <script>
 
-import HeaderView from '../components/HeaderView.vue'
-import book from '../libs/apis/book'
+import { RouterLink } from 'vue-router';
 import bookapi from '../libs/apis/book'
-import categoryApi from '../libs/apis/category'
-
-export default {
-        components: {
-                HeaderView
-        },
+export default{
         data() {
                 return {
-                        quantity: 1,
                         books: [],
+                        cartId: this.$route.params.Cid,
+                        quantity: 1,
+                        // books: [],
                         categories: [],
                         bookId: this.$route.params.Bid,
-                        cartId: this.$route.params.Cid,
+                        // cartId: this.$route.params.Cid,
                         payId:this.$route.params.Pid,
-                }
+                };
         },
+        components: { RouterLink },
         methods: {
+                // gotocart(cartId) {
+                //         this.$router.push({ name: 'cart', params: { Cid: cartId } })
+                // },
                 increment() {
                         this.quantity++
                 },
@@ -45,17 +45,56 @@ export default {
                 }
         },
         async mounted() {
-                this.books = await bookapi.all()
+                this.books = await bookapi.all();
+               
         }
 }
+
 </script>
 <template>
-        <HeaderView />
+        <header style="background-color:#978080;">
+                <div class="flex justify-between">
+                        <div class="p-2">
+                               <a href="/"><img src="../assets/logo.svg" alt="logo" width="80" height="70"></a> 
+                                <h1 class="mx-3 text-lg font-semibold">Leorio</h1>
+                        </div>
+                        <div class="m-auto">
+                                <nav class=" ">
+                                        <RouterLink to="/" class="navs" ctive-class="active-link"
+                                                exact-active-class="exact-active-link">Home</RouterLink>
+                                        <RouterLink to="/product" class="navs" ctive-class="active-link"
+                                                exact-active-class="exact-active-link">Product</RouterLink>
+                                        <RouterLink to="/about" class="navs " ctive-class="active-link"
+                                                exact-active-class="exact-active-link">About</RouterLink>
+                                </nav>
+                        </div>
+                        <div class="my-8 drop" >
+                                <button class="dropbtn w-36">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                                stroke-width="1.5" stroke="currentColor" class="w-12 h-8">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" />
+                                        </svg>
+                                </button>
+                                <div v-for="book in books" :key="book._id"></div>
+                                <div class="dropdown-content " >
+                                        <button>Profile</button>
+                                        <div class="border-b border-black "></div>
+                                        <button class="" @click="gotocart()">Add cart</button>
+                                        <div class="border-b border-black "></div>
+                                        <button class="border-b border-black">Order History</button>
+                                        <button class="toggle w-full">
+                                                <RouterLink to="/login" class="">Login</RouterLink>
+                                        </button>
+                                </div>
+                        </div>
+                </div>
+        </header>
+
         <div class="" style="background-color: #DBCECE;">
                 <div >
                         <h1 class="mx-2 title"><a href="/"> Home</a>> Detail</h1>
                 </div>
-
                 <div  v-for="(book, index ) in books" :key="index">
                         <div v-if="bookId == book._id" class="m-1 grid grid-cols-3 gap-56">
                                 <div class="">
@@ -67,7 +106,7 @@ export default {
                                         <div class="">
                                                 <p class="py-3">Author:{{ book.author }}</p>
                                                 <p>First published:{{ book.public }}</p>
-                                                <p class=" w-75 py-3 sm:w-96"> <b>Description:</b> {{ book.desc }}
+                                                <p class=" w-75 py-3"> <b>Description:</b> {{ book.desc }}
                                                 </p>
                                         </div>
                                 </div>
@@ -76,7 +115,7 @@ export default {
                                         <div class=" ">
                                                 <p class="text-lg font-semibold">Price: <span class="mx-5"> {{ book.price }}</span></p>
                                                 <div class="quantity-toggle mt-5 mx-5">
-                                                        <button @click="decrement()" class="rounded-lg ">&minus;</button>
+                                                        <button @click="decrement()" class="rounded-lg">&minus;</button>
                                                         <input type="text" :value="quantity" readonly
                                                                 class=" text-center num rounded">
                                                         <button @click="increment()" class="rounded-lg">&plus;</button>
@@ -117,7 +156,6 @@ export default {
 </template>
 
 <style>
-/*  */
 .inforn {
         display: grid;
         grid-template-columns: auto auto auto;
@@ -175,7 +213,6 @@ export default {
         background-color: #DBCECE;
         width: 2.5rem;
         text-align: center;
-        height: 30px;
         padding: 0 .5rem;
 
 }
@@ -184,11 +221,9 @@ export default {
         width: 10%;
         border: 2px solid black;
         text-align: center;
-        height: 10%;
         /* background: #f5f5f5; */
         color: #888;
         cursor: pointer;
         font-weight: bold;
 }
 </style>
-

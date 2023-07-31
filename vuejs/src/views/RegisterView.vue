@@ -13,7 +13,7 @@ export default {
         methods: {
                 async onSubmit(e) {
                         e.preventDefault();
-                        try{
+                        try {
                                 const res = await fetch("http://localhost:3001/auth/register", {
                                         method: "POST",
                                         headers: {
@@ -33,9 +33,9 @@ export default {
                                 if (!result.success) {
                                         alert(result.error);
                                         return;
-                                }   
+                                }
                         }
-                        catch{
+                        catch {
                                 console.log(err);
                         }
 
@@ -49,63 +49,72 @@ export default {
 <template>
         <div class="" style="background-color: #DBCECE;">
                 <div class="bg-blue-100 border border-black m-auto p-4 " style="width: 70%; border-radius: 50px;">
+                        <div>
+                                <p class="flex justify-end"> <a href="/">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                        viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                                                        class="w-6 h-6">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                                d="M6 18L18 6M6 6l12 12" />
+                                                </svg>
+                                        </a> </p>
+                        </div>
                         <div class="grid grid-cols-2">
                                 <div class="img flex justify-center">
+
                                         <img src="../assets/login.png" alt="Avatar" class="avatar" />
                                 </div>
-                                        <form @submit="onSubmit" class="bg-blue-100 p-2">
-                                                <div class="container">
-                                                        <div>
-                                                                <h1 class="font-blod text-center text-2xl pb-2">Sign Up</h1>
-                                                                <p>Please fill in this form to create an account.</p>
-                                                        </div>
-
-                                                        <hr />
-                                                        <div>
-                                                                <label for="email"><b>Email</b></label><br>
-                                                                <input v-model="email" type="text" placeholder="Enter Email"
-                                                                        name="email" required />
-                                                        </div>
-                                                        <div>
-                                                                <label for="username"><b>Username</b></label><br>
-                                                                <input v-model="username" type="text" placeholder="Username"
-                                                                        name="username" required />
-                                                        </div>
-                                                        <div>
-                                                                <label for="first-name"><b>First name</b></label><br>
-                                                                <input v-model="firstName" type="text" placeholder="First Name"
-                                                                        name="first-name" required />
-                                                        </div>
-                                                        <div>
-                                                                <label for="last-name"><b>Last name</b></label><br>
-                                                                <input v-model="lastName" type="text" placeholder="Last Name"
-                                                                        name="last-name" required />
-                                                        </div>
-                                                        <div>
-                                                                <label for="pwd"><b>Password</b></label><br>
-                                                                <input v-model="pwd" type="password"
-                                                                        placeholder="Create your Password" name="pwd"
-                                                                        required />
-                                                        </div>
-
-                                                        <div>
-                                                                <label for="psw-repeat"><b>Repeat Password</b></label><br>
-                                                                <input v-model="repeatPws" type="password"
-                                                                        placeholder="Repeat Password" name="psw-repeat"
-                                                                        required />
-
-                                                        </div>
-
-                                                        <p>
-                                                                By creating an account you agree to our
-                                                                <a href="#" style="color: dodgerblue">Terms & Privacy</a>.
-                                                        </p>
-
-                                                        <div class="flex justify-end ">
-                                                                <button type="submit" class="signupbtn text-lg">Sign Up</button>
-                                                        </div>
+                                <form @submit="onSubmit" class="bg-blue-100 p-2">
+                                        <div class="container">
+                                                <div>
+                                                        <h1 class="font-blod text-center text-2xl pb-2">Sign Up</h1>
+                                                        <p>Please fill in this form to create an account.</p>
                                                 </div>
-                                        </form>
+
+                                                <hr />
+                                                <div>
+                                                        <label for="email"><b>Email</b></label><br>
+                                                        <input v-model="email" type="text" placeholder="Enter Email"
+                                                                name="email" required />
+                                                </div>
+                                                <div>
+                                                        <label for="username"><b>Username</b></label><br>
+                                                        <input v-model="username" type="text" placeholder="Username"
+                                                                name="username" required />
+                                                </div>
+                                                <div>
+                                                        <label for="first-name"><b>First name</b></label><br>
+                                                        <input v-model="firstName" type="text" placeholder="First Name"
+                                                                name="first-name" required />
+                                                </div>
+                                                <div>
+                                                        <label for="last-name"><b>Last name</b></label><br>
+                                                        <input v-model="lastName" type="text" placeholder="Last Name"
+                                                                name="last-name" required />
+                                                </div>
+                                                <div>
+                                                        <label for="pwd"><b>Password</b></label><br>
+                                                        <input v-model="pwd" type="password" placeholder="Create your Password"
+                                                                name="pwd" required />
+                                                </div>
+
+                                                <div>
+                                                        <label for="psw-repeat"><b>Repeat Password</b></label><br>
+                                                        <input v-model="repeatPws" type="password" placeholder="Repeat Password"
+                                                                name="psw-repeat" required />
+
+                                                </div>
+
+                                                <p>
+                                                        By creating an account you agree to our
+                                                        <a href="#" style="color: dodgerblue">Terms & Privacy</a>.
+                                                </p>
+
+                                                <div class="flex justify-end ">
+                                                        <button type="submit" class="signupbtn text-lg">Sign Up</button>
+                                                </div>
+                                        </div>
+                                </form>
                         </div>
 
                 </div>
@@ -136,7 +145,7 @@ input[type="text"]:focus,
 input[type="password"]:focus {
         background-color: #ddd;
         outline: none;
-        
+
 }
 
 hr {

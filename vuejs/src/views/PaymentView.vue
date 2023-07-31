@@ -11,11 +11,15 @@ import bookapi from '../libs/apis/book'
                         return{
                                 books:[],
                                 payId:this.$route.params.Pid,
+                                payments:[],
                         }
                        
                 },
                 methods:{
+                      async onPayment(e){
+                        const result = {name, title, quantity, phonenumber} ;
                         
+                      }
                 },
                 async mounted() {
                           this.books = await bookapi.all();

@@ -11,7 +11,8 @@ export default {
         data() {
                 return {
                         books: [], 
-                        categories:[]
+                        categories:[],
+                        showBooks: window.innerWidth <= 768 ? true : false
                 }
         },
         methods: {
@@ -20,27 +21,30 @@ export default {
                 }, 
                 async onClick(categoryId){
                         this.books = await bookapi.getgenre(categoryId)
-                }
+                },
+                // switchContaoner: function(){
+                //         return(this.showBooks = !this.showBooks);
+                // }
         },
         async mounted() {
                 this.books = await bookapi.all()
+                
 
-        }
-
+        },
 }
 </script>
 <template>
         <HeaderView />
         <div class="" style="background-color: #DBCECE;">
                 <div class="flex py-3 justify-between">
-                        <h1 class="mx-2 title">Home > Product</h1>
+                                <h1 class="mx-2 title"><a href="/"> Home</a>> Product</h1>
                         <div class="">
                                 <form action="" class="search-bar">
                                         <input type="search" name="search" required placeholder="search here " class="rounded-lg">
-                                        <button class="search-btn" type="submit">
+                                        <button class=" toggle" type="submit" @click="switchContaoner" >
                                                 <span class="mx-2">Search</span>
                                         </button>
-                                </form>
+                                </form>       
                         </div>
                 </div>
                 <div class="d-flex mx-5 py-3" v-for="category in categories" :key="category._id">

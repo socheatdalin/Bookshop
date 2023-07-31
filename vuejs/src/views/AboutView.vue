@@ -27,7 +27,7 @@
                                 <p>We’re here to help you and freely to contact us. </p>
                                 <p>Call us.If you’d like to talk to us in person. </p>
                                 <p>call us at <b class="tel">012-8585-010</b></p> 
-                        </div>
+                        </div>p
                 </div>      
                         <div class="email">
                                 <h2>Contact Form</h2>

@@ -1,5 +1,6 @@
 <script>
 import HeaderView from '../components/HeaderView.vue';
+import book from '../libs/apis/book';
 import bookapi from '../libs/apis/book'
 export default {
         components: {
@@ -18,6 +19,18 @@ export default {
         },
         async mounted() {
                 this.books = await bookapi.all();
+        },
+        computed:{
+                lineTotal(){
+                        let total = 0;
+                        this.books.forEach((book,i) =>{
+                                total += this.quantity * this.price;
+                        });
+                        return total;
+                },
+                cart(){
+                        
+                }
         }
 
 }
@@ -45,7 +58,7 @@ export default {
                                                                 <tr class="" v-if="cartId == book._id">
                                                                         <td class="whitespace-nowrap px-6 py-4 font-medium">
                                                                                 {{ book.name }}</td>
-                                                                        <td class="whitespace-nowrap px-6 py-4">1</td>
+                                                                        <td class="whitespace-nowrap px-6 py-4">{{ book. quantity }}</td>
                                                                         <td class="whitespace-nowrap px-6 py-4">${{ book.price }}</td>
                                                                         <td class="whitespace-nowrap px-6 py-4">${{ book.price }}</td>
                                                                         <td class="">
@@ -60,14 +73,15 @@ export default {
                                 </div>
                         </div>
                 </div>
-                <div class="flex justify-between border-t border-black m-3 my-5">
+                <div >
+                <div class="flex justify-between border-t border-black m-3 my-5" >
                                 <h3 class="font-bold text-lg m-3">Subtotal</h3>
-                                <!-- <p>10</p> -->
+                                <p>{{ }}</p>
                 </div>
                 <div class="flex justify-between border-t border-black m-3 my-5">
                                 <h3 class="font-bold text-lg m-3">Total</h3>
-                                <!-- <p>10</p> -->
-                </div>
+                                <p>{{ }}</p>
+                </div></div>
                 <div class="flex justify-end mx-24" v-for="(book, index) in books" :key="index">
                         
                         <button class="rounded-lg w-32 text-center" v-if="cartId == book._id"  style="background-color: #0D99FF;" @click="gotoPayment(book._id)">Checkout </button>

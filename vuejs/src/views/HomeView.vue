@@ -40,14 +40,14 @@ export default {
         <!-- <button type=" " v-on:click="onLogout()">Logout</button> -->
         <div class="p-1 md:w-full" style="background-color:#DBCECE ;">
                 <div class="flex justify-center">
-                        <img src="../assets/bg.svg" alt=" ">
+                        <img src="../assets/bg.svg" alt=" " >
                 </div>
                 <div class="border border-black text-center text-xl p-2">
                         <h3>Shop with me </h3>
                 </div>
                 <div class="booklist">
                         <div class="inforn   ">
-                                <div class="book border border-black relative lg:h-80 md:w-64 md:h-80 sm:w-36 sm:h-60" v-for="book in books" :key="book._id">
+                                <div class="book border border-black relative lg:h-80 md:w-64 md:h-80 sm:w-36 sm:h-60" v-for="book in books.slice(0, 9)" :key="book._id">
                                         <div>
                                                 <img :src="book.imageUrl" alt="" class=" logo border rounded mx-auto lg:h-60 md:h-60 sm:h-40">
                                            </div>

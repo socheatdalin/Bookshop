@@ -1,7 +1,8 @@
 <script >
 
+import { RouterLink } from 'vue-router';
+
 export default {
-        
         setup() {
         },
         data() {
@@ -17,9 +18,9 @@ export default {
         methods: {
                 async onSubmit(e) {
                         e.preventDefault();
-                        try{
-                                const res = await fetch('http://localhost:3001/auth/login',{
-                                        method: 'POST',
+                        try {
+                                const res = await fetch("http://localhost:3001/auth/login", {
+                                        method: "POST",
                                         headers: {
                                                 "Content-type": "application/json",
                                                 Origin: "http://localhost:3000",
@@ -29,32 +30,45 @@ export default {
                                                 password: this.password,
                                         }),
                                 });
-                                 const result = await res.json();
-                                 if (!result.success) {
+                                const result = await res.json();
+                                if (!result.success) {
                                         alert(result.error);
                                         return;
                                 }
                                 console.log(result.error);
                         }
-                        catch(err){
+                        catch (err) {
                                 console.log(err);
                         }
                         this.$router.push({ name: "home" });
                 },
         },
+        components: { RouterLink }
 };
 </script>
 
 <template>
-        <div class="h-screen pt-5"  style="background-color: #DBCECE;">
+        <div class="h-screen pt-5" style="background-color: #DBCECE;">
                 <div class="bg-blue-100 border border-black m-auto md:w-3/4 sm:w-3/4" style="width: 60%; border-radius: 50px;">
+
                         <div class="grid grid-cols-2  ">
                                 <div class="imgcontainer flex justify-center ">
+                                        <p class="flex justify-end"> <a href="/"><svg xmlns="http://www.w3.org/2000/svg"
+                                                                fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                                stroke="currentColor" class="w-6 h-6">
+                                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                                        d="M9 15L3 9m0 0l6-6M3 9h12a6 6 0 010 12h-3" />
+                                                        </svg>
+                                                </a> </p>
                                         <img src="../assets/login.png" alt="Avatar" class="avatar" />
                                 </div>
                                 <div class=" ">
                                         <form @submit="onSubmit" method="post">
-                                                <h1 class="text-center text-2xl font-bold">Sign Up</h1>
+                                                <div>
+                                                        <h1 class="text-center text-2xl font-bold">Sign In</h1>
+
+                                                </div>
+
                                                 <div class="container">
                                                         <div>
                                                                 <label for="email"><b>Username</b></label><br>
@@ -65,20 +79,22 @@ export default {
                                                         <div>
                                                                 <label for="psw"><b>Password</b></label><br>
                                                                 <input v-model="password" type="password"
-                                                                        placeholder="Enter Password" class="w-96 md:w-48" name="psw"
-                                                                        required />
+                                                                        placeholder="Enter Password" class="w-96 md:w-48"
+                                                                        name="psw" required />
                                                         </div>
 
                                                         <div class="flex justify-end ">
-                                                                <button type="submit "> Login</button> 
-                                                                <!-- <button type=" " @click="Logout()">Logout</button> -->
+                                                                <button type="submit " class=""> Login</button>
+                                                                <!-- <button type="buttom " class=""> <RouterLink to="/home">cancel</RouterLink> </button> -->
                                                         </div>
-                                                        
+
                                                 </div>
 
                                                 <div class="container " style="display: flex;">
-                                                        <p >Create your new account here.<RouterLink to="/register" class="ml-2 " style=" color: #33c818;">Register Here</RouterLink></p>
-                                                        
+                                                        <p>Create your new account here.<RouterLink to="/register" class="ml-2 "
+                                                                        style=" color: #33c818;">Register Here</RouterLink>
+                                                        </p>
+
                                                 </div>
                                         </form>
                                 </div>
@@ -165,7 +181,6 @@ span.psw {
         .cancelbtn {
                 width: 100%;
         }
-}
-</style>
+}</style>
 
 
