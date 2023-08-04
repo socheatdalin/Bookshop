@@ -1,11 +1,11 @@
 var Cart = {
         async all() {
-                const res = await fetch("http://localhost:3001/cart/all", {
+                const res = await fetch("https://dalin-bookshop-api.onrender.com/cart/all", {
                   method: "GET",
                   credentials: "include",
                   headers: {
                     "Content-type": "application/json",
-                    Origin: "http://localhost:3000",
+                    Origin: "https://dalin-bookshop-api.onrender.com",
                   },
                 });
             
@@ -15,7 +15,7 @@ var Cart = {
                 return result;
               },
         async create({ book, price , quantity, total }) {
-                  const res = await fetch("http://localhost:3001/item/create", {
+                  const res = await fetch("https://dalin-bookshop-api.onrender.com/item/create", {
                     method: "POST",
                     credentials: "include",
                     headers: {

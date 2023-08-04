@@ -1,12 +1,11 @@
 var auth = {
         async getMe(){
-                
                         const res = await fetch('https://dalin-bookshop-api.onrender.com/auth/me',{
                                 method: 'GET',
                                 credentials: "include",
                                 header:{
                                         "Content-type": "application/json",
-                                        // origin: "http://localhhost:3000" 
+                                        origin: "https://dalin-bookshop-api.onrender.com" 
                                 }
                         });
                         const result = await res.json();

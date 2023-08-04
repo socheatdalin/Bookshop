@@ -160,7 +160,6 @@ button {
         padding: 5px;
         border-radius: 20px;
         cursor: pointer;
-
 }
 
 button:hover {
