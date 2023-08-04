@@ -40,12 +40,18 @@ export default {
                 gotoPayment(payId){
                         this.$router.push({name:'payment', params:{Pid:payId}})
                 },
-                addBookTocart(newbook){
+                // addBookTocart(newbook){
                         
-                       localStorage.setItem('book',JSON.stringify(newbook));
-                       localStorage.setItem('qty',JSON.stringify(this.quantity))
-                       console.log(newbook)
-                }, 
+                //        localStorage.setItem('book',JSON.stringify(newbook));
+                //        localStorage.setItem('qty',JSON.stringify(this.quantity))
+                //        console.log(newbook)
+                // }, 
+                addToCart(e){
+                        e.preventDefault();
+                        const{  book, price , quantity, total} = this ;
+                        let result = cartApi.create({book, price , quantity, total})
+                        console.log(result)
+                }
                 
         },
         async mounted() {
@@ -93,7 +99,7 @@ export default {
                                                         <button class="rounded-lg w-28 p-1" @click="gotoPayment(book._id)"
                                                                 style="background-color: #0D99FF;">Buy Now</button>
                                                 <RouterLink to="/cart">
-                                                        <button class="rounded-lg px-3 w-28 p-1" @click="addBookTocart(book)" value="Store" type="submit"
+                                                        <button class="rounded-lg px-3 w-28 p-1" @click="addToCart(book)" value="Store" type="submit"
                                                                 style="background-color: #0D99FF;">Add Cart</button>
                                                 </RouterLink>
                                         </div>

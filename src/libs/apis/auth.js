@@ -1,5 +1,6 @@
 var auth = {
         async getMe(){
+                try{
                         const res = await fetch('https://dalin-bookshop-api.onrender.com/auth/me',{
                                 method: 'GET',
                                 credentials: "include",
@@ -9,7 +10,11 @@ var auth = {
                                 }
                         });
                         const result = await res.json();
-                        return result;   
+                        return result;  
+                }
+                 catch(err){
+                        console.log(err)
+                 }        
                
         },
         async logout(){

@@ -46,12 +46,7 @@ export default {
                 //        localStorage.setItem('qty',JSON.stringify(this.quantity))
                 //        console.log(newbook)
                 // }, 
-                addToCart(e){
-                        e.preventDefault();
-                        const{  book, price , quantity, total} = this ;
-                        let result = cartApi.create({book, price , quantity, total})
-                        console.log(result)
-                }
+           
                 
         },
         async mounted() {
@@ -100,7 +95,7 @@ export default {
                                                         <button class="rounded-lg w-28 p-1" 
                                                                 style="background-color: #0D99FF;">Buy Now</button>
                                                
-                                                        <button class="rounded-lg px-3 w-28 p-1" type="submit" 
+                                                        <button class="rounded-lg px-3 w-28 p-1" type="submit"  
                                                                 style="background-color: #0D99FF;">Add Cart</button>
                                         </div>
                                 </div>

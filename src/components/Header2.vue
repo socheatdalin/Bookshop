@@ -26,7 +26,7 @@ export default {
         <header class="hearder" style="background-color:#978080;">
                 <div class="flex justify-between relative">
                         <div class="p-2">
-                              <a href="/home2">  <img src="../assets/logo.svg" alt="logo" width="80" height="70"></a>
+                              <a href="/home2">  <img src="../assets/logo.png" alt="logo" width="80" height="70"></a>
                                 <h1 class="mx-3 text-lg font-semibold">Leorio</h1>
                         </div>
                         <div class="m-auto">
