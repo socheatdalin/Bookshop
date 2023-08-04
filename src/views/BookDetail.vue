@@ -1,7 +1,7 @@
 <script>
 import HeaderView from '@/components/HeaderView.vue'
 import bookapi from '../libs/apis/book'
-import FooterView from '@/components/Footerview.vue'
+import FooterView from '../components/FooterView.vue'
 import cartApi from '../libs/apis/cart'
 export default {
         components: {
