@@ -2,7 +2,6 @@
 import Header2 from '../components/Header2.vue';
 import bookapi from '../libs/apis/book'
 import FooterView from '../components/FooterView.vue'
-import CartApi from '../libs/apis/cart'
 export default {
         components: {
                 FooterView,
@@ -12,43 +11,31 @@ export default {
                 return {
                         books: [],
                         quantity:[],
-                        carts:[],
-                        total:[],
                         cartId: this.$route.params.Cid,
                 }
         },
         methods: {
-                gotoPayment() {
-                        this.$router.push({ name: 'payment'})
-                },
-                increment() {
-                        this.quantity++
-                },
-                decrement() {
-                        if (this.quantity === 1) {
-                                alert('Negative quantity not allowed')
-                        } else {
-                                this.quantity--
-                        }
-                },
+             
+                removeItem(){
+
+                }
         },
-        // computed: {
-        //         Total() {
-        //                 let total = 0;
-        //                 this.books.forEach((book, i) => {
-        //                         total += this.quantity * this.price;
-        //                 });
-        //                 return total;
-        //         },
-        // },
         async mounted() {
                 this.books = await bookapi.all();
+        },
+        computed: {
+                Total() {
+                        let total = 0;
+                        this.books.forEach((book, i) => {
+                                total += this.quantity * this.price;
+                        });
+                        return total;
+                },
+        },
+        mounted() {
                 this.books = JSON.parse(localStorage.getItem('book'));
                 this.quantity = JSON.parse(localStorage.getItem('qty'));
-                this.total = this.quantity * this.books.price
-                localStorage.setItem('total',JSON.stringify(this.total))    
-                this.total = JSON.parse(localStorage.getItem('total'));
-                console.log(this.total)
+               
                 console.log(this.books)
         }
 
@@ -57,10 +44,11 @@ export default {
 
 <template>
         <div class="header">
-               <Header2 /> 
+                <Header2 />
         </div>
+        
         <div class="h-screen" style="background-color: #DBCECE;">
-                <h1 class="p-5 px-5 font-blod text-2xl "> <a href="/">Home</a> > My Cart</h1>
+                <h1 class="p-5 px-5 font-blod text-2xl "> Order History</h1>
                 <div class="flex flex-col">
                         <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
                                 <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
@@ -68,7 +56,7 @@ export default {
                                                 <table class="min-w-full text-left text-lg font-light table-fixed">
                                                         <thead class="border-b border-black ">
                                                                 <tr>
-                                                                        <th scope="col" class="px-6 py-4">Product</th>
+                                                                        <th scope="col" class="px-6 py-4">Prodcut</th>
                                                                         <th scope="col" class="px-6 py-4">Quantity</th>
                                                                         <th scope="col" class="px-6 py-4">Price</th>
                                                                         <th scope="col" class="px-6 py-4">Total</th>
@@ -76,13 +64,13 @@ export default {
                                                                 </tr>
                                                         </thead>
                                                         <tbody>
-                                                                <tr class="" >
+                                                                <tr class="">
                                                                         <td class="whitespace-nowrap px-5 py-4 font-medium">
-                                                                                <img :src="books.imageUrl" alt="" class="w-48 h-48">{{ books.name }}
+                                                                                <img :src="books.imageUrl" alt="" class="w-32 h-48">
                                                                         </td>
-                                                                       <td class="whitespace-nowrap px-6 py-4">{{ quantity }}</td>
+                                                                        <td class="whitespace-nowrap px-6 py-4">{{ quantity }}</td>
                                                                         <td class="whitespace-nowrap px-6 py-4">${{ books.price }}</td>
-                                                                        <td class="whitespace-nowrap px-6 py-4">${{total}}</td>
+                                                                        <td class="whitespace-nowrap px-6 py-4">${{books.price}}</td>
                                                                         <td class=" px-6 py-4">
                                                                                 <svg xmlns="http://www.w3.org/2000/svg"
                                                                                         fill="none" viewBox="0 0 24 24"
@@ -100,22 +88,18 @@ export default {
                                 </div>
                         </div>
                 </div>
-                <div>
-                        <div class="flex justify-between border-t border-black m-3 my-5">
-                                <h3 class="font-bold text-lg m-3">Total</h3>
-                                <p class="mx-5">${{ total}}</p>
-                        </div>
-                </div>
-                <div class="flex justify-end mx-24">
-
-                        <button class="rounded-lg w-32 text-center" style="background-color: #0D99FF;"
-                                @click="gotoPayment()">Checkout </button>
-                </div>
         </div>
         <FooterView />
 </template>
 
 <style>
+.header{
+        position: -webkit-sticky;
+        position: sticky;
+        top: 0;
+        z-index: 1;
+        /* font-size: 20px; */
+}
 * {
         font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
@@ -128,13 +112,5 @@ h3 {
 .desc {
         width: 400px;
 
-}
-.header{
-        position: -webkit-sticky;
-        position: sticky;
-        top: 0;
-        z-index: 1;
-        font-size: 20px;
-}
-</style>
+}</style>
 

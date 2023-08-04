@@ -19,11 +19,11 @@ export default {
                 async onSubmit(e) {
                         e.preventDefault();
                         try {
-                                const res = await fetch("http://localhost:3001/auth/login", {
+                                const res = await fetch("https://dalin-bookshop-api.onrender.com/auth/login", {
                                         method: "POST",
                                         headers: {
                                                 "Content-type": "application/json",
-                                                Origin: "http://localhost:3000",
+                                                Origin: "https://dalin-bookshop-api.onrender.com",
                                         },
                                         body: JSON.stringify({
                                                 email: this.email,
@@ -40,7 +40,7 @@ export default {
                         catch (err) {
                                 console.log(err);
                         }
-                        this.$router.push({ name: "home" });
+                        this.$router.push({ name: "home2" });
                 },
         },
         components: { RouterLink }

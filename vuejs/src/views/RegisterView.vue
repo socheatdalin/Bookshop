@@ -14,7 +14,7 @@ export default {
                 async onSubmit(e) {
                         e.preventDefault();
                         try {
-                                const res = await fetch("http://localhost:3001/auth/register", {
+                                const res = await fetch("https://dalin-bookshop-api.onrender.com/auth/register", {
                                         method: "POST",
                                         headers: {
                                                 "Content-type": "application/json",
@@ -160,7 +160,6 @@ button {
         padding: 5px;
         border-radius: 20px;
         cursor: pointer;
-
 }
 
 button:hover {

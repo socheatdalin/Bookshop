@@ -1,20 +1,24 @@
 var auth = {
         async getMe(){
-                
-                        const res = await fetch('http://localhost:3001/auth/me',{
+                try{
+                        const res = await fetch('https://dalin-bookshop-api.onrender.com/auth/me',{
                                 method: 'GET',
                                 credentials: "include",
                                 header:{
                                         "Content-type": "application/json",
-                                        // origin: "http://localhhost:3000" 
+                                        origin: "https://dalin-bookshop-api.onrender.com" 
                                 }
                         });
                         const result = await res.json();
-                        return result;   
+                        return result;  
+                }
+                 catch(err){
+                        console.log(err)
+                 }        
                
         },
         async logout(){
-                const res = await fetch('http://localhost:3001/auth/logout',{
+                const res = await fetch('https://dalin-bookshop-api.onrender.com/auth/logout',{
                         method: "POST",
                         credentials: "include",
                         headers:{

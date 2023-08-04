@@ -1,17 +1,24 @@
 <script >
 import Header2 from '../components/Header2.vue'
-import HeaderView from '../components/HeaderView.vue'
+import HeaderView from '@/components/HeaderView.vue'
 import bookapi from '../libs/apis/book'
-
+import FooterView from '../components/FooterView.vue'
 export default {
         components: {
                 HeaderView,
-                Header2
+                Header2,
+                FooterView
         },
         data(){
                 return{
-                        books:[]
+                        books:[],
+                        bookId: this.$route.params.Bid,
                 }
+        },
+        methods:{
+                gotodetail(bookId){
+                        this.$router.push({name:'detail2', params:{Bid:bookId}})
+                },
         },
         async mounted(){
                 this.books = await bookapi.all()
@@ -21,10 +28,13 @@ export default {
 }
 </script>
 <template>
-        <HeaderView/>
-        <div class="" style="background-color: #DBCECE;">
+        <div class="header">
+                <Header2/>
+        </div>
+        
+        <div class="" style="background-color: #DBCECE; height: 100%;">
                 <div class="flex py-3 justify-between">
-                        <h1 class="mx-2 title">Home > Product</h1>
+                        <h1 class="mx-2 title"> <a href="/home2">Home </a> > Product</h1>
                         <div class="">
                                 <form action="" class="search-bar">
                                         <input type="search" name="search" required placeholder="search here " class="rounded-lg">
@@ -56,14 +66,15 @@ export default {
                                            </div>
                                         <h1 class="text-center mt-5 font-semibold text-xl">{{ book.name }}</h1>
                                         <div class="text-xl">
-                                                <h4 class="price">Price:</h4>
-                                                <RouterLink to="/detail" class="see">see more</RouterLink>
+                                                <h4 class="price">Price:${{ book.price }}</h4>
+                                                <p class="see" @click="gotodetail(book._id)">see more</p>
                                         </div>
                                 </div>
 
                         </div>
                 </div>
         </div>
+        <FooterView />
 </template>
 
 <style>
@@ -83,5 +94,11 @@ export default {
 .genre:hover {
         background-color: #978080;
 }
-
+.header{
+        position: -webkit-sticky;
+        position: sticky;
+        top: 0;
+        z-index: 1;
+        /* font-size: 20px; */
+}
 </style>

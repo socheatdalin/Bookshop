@@ -1,19 +1,18 @@
 <script>
-import HeaderView from '@/components/HeaderView.vue'
+
+import Header2 from '../components/Header2.vue'
 import bookapi from '../libs/apis/book'
 import FooterView from '../components/FooterView.vue'
-import cartApi from '../libs/apis/cart'
+
 export default {
         components: {
-                HeaderView,
+                Header2,
                 FooterView
-
         },
         data() {
                 return {
                         quantity: 1,
                         books: [],
-                        carts:[],
                         categories: [],
                         bookId: this.$route.params.Bid,
                         cartId: this.$route.params.Cid,
@@ -32,7 +31,7 @@ export default {
                         }
                 },
                 gotodetail(bookId){
-                        this.$router.push({name:'detail', params:{Bid:bookId}})
+                        this.$router.push({name:'detail2', params:{Bid:bookId}})
                 },
                 gotocart(cartId){
                         console.log(cartId);
@@ -41,33 +40,31 @@ export default {
                 gotoPayment(payId){
                         this.$router.push({name:'payment', params:{Pid:payId}})
                 },
-                addBookTocart(){
-                        alert("You do not have a account. Please Login!");
+                addBookTocart(newbook){
+                        
+                       localStorage.setItem('book',JSON.stringify(newbook));
+                       localStorage.setItem('qty',JSON.stringify(this.quantity))
+                       console.log(newbook)
                 }, 
-           
-                
         },
         async mounted() {
                 this.books = await bookapi.all()
-                
         }
 }
 </script>
 <template>
         <div class="header">
-                 <HeaderView />
+              <Header2 />  
         </div>
-       
-       
         <div class="" style="background-color: #DBCECE;">
                 <div >
-                        <h1 class="mx-2 title"><a href="/"> Home</a>> Detail</h1>
+                        <h1 class="mx-2 title"><a href="/home2"> Home</a>> Detail</h1>
                 </div>
 
                 <div  v-for="(book, index ) in books" :key="index">
                         <div v-if="bookId == book._id" class="m-1 grid grid-cols-3 gap-56">
-                        
                                 <div class="">
+                                        <!-- <img alt="book logo" src="../assets/login.png" /> -->
                                         <img :src="book.imageUrl" alt="" class="logo rounded mx-auto">
                                 </div>
                                 <div class="">
@@ -80,8 +77,9 @@ export default {
                                         </div>
                                 </div>
                                 <div class="mx-5 justify-end">
+                                        <!-- <hr class="w-25"> -->
                                         <div class=" ">
-                                                <p class="text-lg font-semibold">Price: <span class="mx-5"> ${{ book.price }}</span></p>
+                                                <p class="text-lg font-semibold">Price: <span class="mx-5"> {{ book.price }}</span></p>
                                                 <div class="quantity-toggle mt-5 mx-5">
                                                         <button @click="decrement()" class="rounded-lg ">&minus;</button>
                                                         <input type="text" :value="quantity" readonly
@@ -89,12 +87,14 @@ export default {
                                                         <button @click="increment()" class="rounded-lg">&plus;</button>
                                                 </div>
                                         </div>
+                                        <!-- <hr class="w-75 my-5 "> -->
                                         <div class="flex gap-3 my-5">
-                                                        <button class="rounded-lg w-28 p-1" 
-                                                                style="background-color: #0D99FF;"  @click="addBookTocart()">Buy Now</button>
-                                               
-                                                        <button class="rounded-lg px-3 w-28 p-1" type="submit"  @click="addBookTocart()"
+                                                        <button class="rounded-lg w-28 p-1" @click="gotoPayment(book._id)"
+                                                                style="background-color: #0D99FF;">Buy Now</button>
+                                                <RouterLink to="/cart">
+                                                        <button class="rounded-lg px-3 w-28 p-1" @click="addBookTocart(book)" value="Store" type="submit"
                                                                 style="background-color: #0D99FF;">Add Cart</button>
+                                                </RouterLink>
                                         </div>
                                 </div>
                         </div>
@@ -110,6 +110,7 @@ export default {
                                         <h1 class="text-center mt-5 font-semibold text-xl">{{ book.name }}</h1>
                                         <div class="text-xl">
                                                 <h4 class="price">Price:${{ book.price }}</h4>
+                                                <!-- <RouterLink to="/detail" class="see">see more</RouterLink> -->
                                                 <p class="see" @click="gotodetail(book._id)">see more</p>
                                         </div>
                                 </div>
@@ -125,7 +126,7 @@ export default {
         position: sticky;
         top: 0;
         z-index: 1;
-        font-size: 20px;
+        /* font-size: 20px; */
 }
 .inforn {
         display: grid;

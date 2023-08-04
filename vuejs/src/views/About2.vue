@@ -12,7 +12,7 @@
 
 <template >
         <div class="h-screen overflow-hidden" >
-        <HeaderView />
+        <Header2 />
         <div class="contain ">
                 <img src="../assets/About.jpg" alt="" class=" about">
 

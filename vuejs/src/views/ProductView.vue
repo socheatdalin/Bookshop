@@ -1,12 +1,13 @@
 <script >
-import HeaderView from '../components/HeaderView.vue'
-import { RouterLink } from 'vue-router'
+import HeaderView from '@/components/HeaderView.vue'
+import FooterView from '../components/FooterView.vue'
 import bookapi from '../libs/apis/book'
 
 export default {
         components: {
                 HeaderView,
-                RouterLink
+                FooterView
+                
         },
         data() {
                 return {
@@ -22,9 +23,7 @@ export default {
                 async onClick(categoryId){
                         this.books = await bookapi.getgenre(categoryId)
                 },
-                // switchContaoner: function(){
-                //         return(this.showBooks = !this.showBooks);
-                // }
+             
         },
         async mounted() {
                 this.books = await bookapi.all()
@@ -34,7 +33,10 @@ export default {
 }
 </script>
 <template>
-        <HeaderView />
+        <div class="header">
+                <HeaderView />
+        </div>
+        
         <div class="" style="background-color: #DBCECE;">
                 <div class="flex py-3 justify-between">
                                 <h1 class="mx-2 title"><a href="/"> Home</a>> Product</h1>
@@ -47,13 +49,19 @@ export default {
                                 </form>       
                         </div>
                 </div>
-                <div class="d-flex mx-5 py-3" v-for="category in categories" :key="category._id">
+                <div class="d-flex mx-5 py-3">
                         <button class="genre">All</button>
-                        <button class="genre" @click="onClick(category._id)">Drama</button>
-                        <button class="genre">Fiction</button>
+                        <button class="genre">Action</button>
+                        <button class="genre">Adventure</button>
+                        <button class="genre">Comedy</button>
+                        <button class="genre" >Drama</button>
+                        <button class="genre">Fantasy</button>
+                        <button class="genre">Historical</button>
                         <button class="genre">Horror</button>
-                        <RouterLink to="/product2"><button class="genre">+more</button></RouterLink>
-
+                        <button class="genre">Mystery</button>
+                        <button class="genre">Romance</button>
+                        <button class="genre">SCI-FI</button>
+                        <button class="genre">Thirller</button>
                 </div>
                 <div class="booklist">
                         <div class="inforn   ">
@@ -65,15 +73,17 @@ export default {
                                         </div>
                                         <h1 class="text-center mt-5 font-semibold text-xl">{{ book.name }}</h1>
                                         <div class="text-xl">
-                                                <h4 class="price">Price:</h4>
+                                                <h4 class="price">Price:${{ book.price }}</h4>
                                                 <p class="see" @click="gotodetail(book._id)">see more</p>
-                                                <!-- <RouterLink to="/detail" class="see">see more</RouterLink> -->
+                                                
                                         </div>
+
                                 </div>
 
                         </div>
                 </div>
-        </div>
+         </div>
+       <FooterView />
 </template>
 
 <style>
@@ -95,6 +105,12 @@ export default {
 .genre:hover {
         background-color: #978080;
 }
-
+.header{
+        position: -webkit-sticky;
+        position: sticky;
+        top: 0;
+        z-index: 1;
+        font-size: 20px;
+}
 
 </style>

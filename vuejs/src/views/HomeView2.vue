@@ -3,17 +3,23 @@
 // import HeaderView from '../components/HeaderView.vue'
 import Header2 from '../components/Header2.vue'
 import bookapi from '../libs/apis/book'
-
+import FooterView from '../components/FooterView.vue'
 export default {
         components: {
                 // HeaderView,
-                Header2
+                Header2,FooterView
         },
         data(){
                 return{
                         books:[],
-                        auth:[]
+                        auth:[],
+                        bookId: this.$route.params.Bid,
                 }
+        },
+        methods:{
+                gotodetail(bookId){
+                        this.$router.push({name:'detail2', params:{Bid:bookId}})
+                },
         },
         
         async mounted(){
@@ -25,34 +31,45 @@ export default {
 </script>
 
 <template>
-        <Header2 />
+        <div class="header"> 
+                <Header2 />
+       </div>
         
         <div class="p-1" style="background-color:#DBCECE ;">
                 <div class="flex justify-center">
-                        <img src="../assets/bg.svg" alt=" ">
+                    <img src="../assets/bg.svg" alt=" ">
                 </div>
                 <div class="border border-black text-center text-xl p-2">
                         <h3>Shop with me </h3>
                 </div>
                 <div class="booklist">
                         <div class="inforn   ">
-                                <div class="book border border-black relative " v-for="book in books" :key="book._id">
+                                <div class="book border border-black relative " v-for="book in books.slice(0, 6)" :key="book._id">
                                         <div>
                                                 <img :src="book.imageUrl" alt="" class=" logo border rounded mx-auto">
                                            </div>
                                         <h1 class="text-center mt-5 font-semibold text-xl">{{ book.name }}</h1>
                                         <div class="">
-                                                <h4 class="price">Price:</h4>
-                                                <RouterLink to="/detail" class="see">see more</RouterLink>
+                                                <h4 class="price">Price:${{ book.price }}</h4>
+                                                <!-- <RouterLink to="/detail2" class="see">see more</RouterLink> -->
+                                                <p class="see" @click="gotodetail(book._id)">see more</p>
                                         </div>
                                 </div>
 
                         </div>
                 </div>
         </div>
+        <FooterView />
 </template>
 
 <style>
+.header{
+        position: -webkit-sticky;
+        position: sticky;
+        top: 0;
+        z-index: 1;
+        font-size: 20px;
+}
 .inforn{
         margin: 5px;
         display: grid;

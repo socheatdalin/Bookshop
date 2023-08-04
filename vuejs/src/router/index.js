@@ -29,6 +29,11 @@ const router = createRouter({
                         component: () => import('../views/AboutView.vue')
                 },
                 {
+                        path: '/about2',
+                        name: 'about2',
+                        component: () => import('../views/About2.vue')
+                },
+                {
                         path: '/login',
                         name: 'auth/login',
                         component: LoginView
@@ -49,8 +54,13 @@ const router = createRouter({
                         component: BookDetail
                 },
                 {
+                        path: '/detail2/:Bid',
+                        name: 'detail2',
+                        component: () => import('../views/Detail2.vue')
+                },
+                {
                         // path: '/cart/:Cid',
-                        path: '/cart/',
+                        path: '/cart',
                         name: 'cart',
                         component: CartView
                 },
@@ -63,7 +73,22 @@ const router = createRouter({
                         // path: '/payment/:Pid',
                         path: '/payment',
                         name: 'payment',
+                        meta: {
+                                requiresAuth: true
+                              },
                         component:  () => import('../views/PaymentView.vue')
+                },
+                {
+                        // path: '/payment/:Pid',
+                        path: '/paymentStatus',
+                        name: 'paymentstatus',
+                        component:  () => import('../views/successfullypage.vue')
+                },
+                {
+                        // path: '/payment/:Pid',
+                        path: '/orderHistory',
+                        name: 'orderHistory',
+                        component:  () => import('../views/orderHistory.vue')
                 },
                 {
                         path: '/dashboard',
@@ -82,19 +107,15 @@ const router = createRouter({
                                 }
                         ]
                 },
-                {
-                        path: '/test',
-                        name: 'test',
-                        component:  () => import('../views/test.vue')
-                },
+                
         ]
 })
-router.beforeEach(async (to, from, next) => {
-        const me = await authApi.getMe();
-        const isAuthenticated = !!me
-        if (to.name.includes('dashboard') && !isAuthenticated) next({ name: 'auth/login' })
-        if (to.name.includes('auth') && isAuthenticated) next({ name: 'dashboard' })
-        else next()
-      })
+// router.beforeEach(async (to, from, next) => {
+//         const me = await authApi.getMe();
+//         const isAuthenticated = !!me
+//         if (to.name.includes('payment2') && !isAuthenticated) next({ name: 'auth/login' })
+//         if (to.name.includes('auth') && isAuthenticated) next({ name: 'payment2' })
+//         else next()
+//       })
 
 export default router
