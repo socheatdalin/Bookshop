@@ -29,7 +29,7 @@ export default {
         <header class="" style="background-color:#978080;">
                 <div class="flex justify-between">
                         <div class="p-2">
-                                <a href="/"><img src="../assets/logo.svg" alt="logo" width="80" height="70"></a>
+                                <a href="/"><img src="../assets/logo.png" alt="logo" width="80" height="70"></a>
                                 <h1 class="mx-3 text-lg font-semibold">Leorio</h1>
                         </div>
                         <div class="m-auto">

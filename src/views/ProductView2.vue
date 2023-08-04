@@ -32,7 +32,7 @@ export default {
                 <Header2/>
         </div>
         
-        <div class="" style="background-color: #DBCECE;">
+        <div class="h-screen" style="background-color: #DBCECE;">
                 <div class="flex py-3 justify-between">
                         <h1 class="mx-2 title"> <a href="/home2">Home </a> > Product</h1>
                         <div class="">
