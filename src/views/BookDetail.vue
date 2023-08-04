@@ -73,7 +73,7 @@ export default {
 
                 <div  v-for="(book, index ) in books" :key="index">
                         <div v-if="bookId == book._id" class="m-1 grid grid-cols-3 gap-56">
-                        <form  @submit="addToCart" method="post">
+                        
                                 <div class="">
                                         <img :src="book.imageUrl" alt="" class="logo rounded mx-auto">
                                 </div>
@@ -103,7 +103,7 @@ export default {
                                                         <button class="rounded-lg px-3 w-28 p-1" type="submit" 
                                                                 style="background-color: #0D99FF;">Add Cart</button>
                                         </div>
-                                </div></form>
+                                </div>
                         </div>
                 </div>
                 <h1 class="mx-5 font-bold text-2xl my-5">Relate book</h1>

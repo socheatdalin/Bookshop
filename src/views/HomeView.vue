@@ -56,7 +56,7 @@ export default {
                                            </div>
                                         <h1 class="text-center mt-2 font-semibold lg:text-xl sm:text-sm ">{{ book.name }}</h1>
                                         <div class="sm:text-sm">
-                                                <h4 class="price">Price:{{ book.price }}</h4>
+                                                <h4 class="price">Price:${{ book.price }}</h4>
                                                 <p class="see" @click="gotodetail(book._id)">see more</p>                                        </div>
                                 </div>
 

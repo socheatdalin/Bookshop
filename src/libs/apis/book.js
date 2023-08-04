@@ -1,7 +1,7 @@
 var book ={
         async all(){
                
-                                const res = await fetch('http://localhost:3001/book/all',{
+                                const res = await fetch('https://dalin-bookshop-api.onrender.com//book/all',{
                                 method: 'GET',
                                 // Origin:"http://localhost:3000" ,
                         });
@@ -11,7 +11,7 @@ var book ={
         },
         async getgenre(categoryId){
                 if(categoryId == ""){
-                        const res = await fetch('http://localhost:3001/book/all',{
+                        const res = await fetch('https://dalin-bookshop-api.onrender.com/book/all',{
                             method: 'GET',
                             headers: {
                                 'content-type': 'application/json',
@@ -21,7 +21,7 @@ var book ={
                         const result = res.json();
                         return result
                     }else{
-                        const res = await fetch(`http://localhost:3001/book/all/${categoryId}`,{
+                        const res = await fetch(`https://dalin-bookshop-api.onrender.com/book/all/${categoryId}`,{
                             method: 'GET',
                             headers: {
                                 'content-type': 'application/json',

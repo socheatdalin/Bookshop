@@ -1,6 +1,6 @@
 var category = {
         async all(){
-                const res = await fetch('http://localhost:3001/category/all',{
+                const res = await fetch('https://dalin-bookshop-api.onrender.com/category/all',{
                         method: "GET",
                 });
                 const result = await res.json();
@@ -8,7 +8,7 @@ var category = {
                 return result;
         },
         async update({ id,name, desc, imageUrl }) {
-                const res = await fetch(`http://localhost:3001/category/update/`, {
+                const res = await fetch(`https://dalin-bookshop-api.onrender.com/category/update/`, {
                         method: "POST",
                         credentials: "include",
                         headers: {
@@ -21,7 +21,7 @@ var category = {
                 return result;
         },
         async delete({id}){
-                await fetch(`http://localhost:3001/category/delete`,{
+                await fetch(`https://dalin-bookshop-api.onrender.com/category/delete`,{
                         method: "POST",
                         credentials: "include",
                         headers: {

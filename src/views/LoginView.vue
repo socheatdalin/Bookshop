@@ -19,7 +19,7 @@ export default {
                 async onSubmit(e) {
                         e.preventDefault();
                         try {
-                                const res = await fetch("http://localhost:3001/auth/login", {
+                                const res = await fetch("https://dalin-bookshop-api.onrender.com/auth/login", {
                                         method: "POST",
                                         headers: {
                                                 "Content-type": "application/json",

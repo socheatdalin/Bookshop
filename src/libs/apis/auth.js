@@ -1,7 +1,7 @@
 var auth = {
         async getMe(){
                 
-                        const res = await fetch('http://localhost:3001/auth/me',{
+                        const res = await fetch('https://dalin-bookshop-api.onrender.com/auth/me',{
                                 method: 'GET',
                                 credentials: "include",
                                 header:{
@@ -14,7 +14,7 @@ var auth = {
                
         },
         async logout(){
-                const res = await fetch('http://localhost:3001/auth/logout',{
+                const res = await fetch('https://dalin-bookshop-api.onrender.com/auth/logout',{
                         method: "POST",
                         credentials: "include",
                         headers:{

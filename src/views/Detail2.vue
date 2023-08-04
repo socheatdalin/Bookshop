@@ -110,7 +110,7 @@ export default {
                                         </div>
                                         <h1 class="text-center mt-5 font-semibold text-xl">{{ book.name }}</h1>
                                         <div class="text-xl">
-                                                <h4 class="price">Price:{{ book.price }}</h4>
+                                                <h4 class="price">Price:${{ book.price }}</h4>
                                                 <!-- <RouterLink to="/detail" class="see">see more</RouterLink> -->
                                                 <p class="see" @click="gotodetail(book._id)">see more</p>
                                         </div>
