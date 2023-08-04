@@ -1,6 +1,6 @@
 <script >
 import HeaderView from '@/components/HeaderView.vue'
-import FooterView from '@/components/Footerview.vue'
+import FooterView from '../components/FooterView.vue'
 import bookapi from '../libs/apis/book'
 
 export default {
