@@ -41,11 +41,9 @@ export default {
                 gotoPayment(payId){
                         this.$router.push({name:'payment', params:{Pid:payId}})
                 },
-                // addBookTocart(newbook){
-                //        localStorage.setItem('book',JSON.stringify(newbook));
-                //        localStorage.setItem('qty',JSON.stringify(this.quantity))
-                //        console.log(newbook)
-                // }, 
+                addBookTocart(){
+                        alert("You do not have a account. Please Login!");
+                }, 
            
                 
         },
@@ -83,7 +81,7 @@ export default {
                                 </div>
                                 <div class="mx-5 justify-end">
                                         <div class=" ">
-                                                <p class="text-lg font-semibold">Price: <span class="mx-5"> {{ book.price }}</span></p>
+                                                <p class="text-lg font-semibold">Price: <span class="mx-5"> ${{ book.price }}</span></p>
                                                 <div class="quantity-toggle mt-5 mx-5">
                                                         <button @click="decrement()" class="rounded-lg ">&minus;</button>
                                                         <input type="text" :value="quantity" readonly
@@ -93,9 +91,9 @@ export default {
                                         </div>
                                         <div class="flex gap-3 my-5">
                                                         <button class="rounded-lg w-28 p-1" 
-                                                                style="background-color: #0D99FF;">Buy Now</button>
+                                                                style="background-color: #0D99FF;"  @click="addBookTocart()">Buy Now</button>
                                                
-                                                        <button class="rounded-lg px-3 w-28 p-1" type="submit"  
+                                                        <button class="rounded-lg px-3 w-28 p-1" type="submit"  @click="addBookTocart()"
                                                                 style="background-color: #0D99FF;">Add Cart</button>
                                         </div>
                                 </div>
@@ -111,7 +109,7 @@ export default {
                                         </div>
                                         <h1 class="text-center mt-5 font-semibold text-xl">{{ book.name }}</h1>
                                         <div class="text-xl">
-                                                <h4 class="price">Price:{{ book.price }}</h4>
+                                                <h4 class="price">Price:${{ book.price }}</h4>
                                                 <p class="see" @click="gotodetail(book._id)">see more</p>
                                         </div>
                                 </div>

@@ -20,7 +20,11 @@ export default {
         },
         async mounted() {
                 this.books = await bookapi.all();
-                this.books = JSON.parse(localStorage.getItem('book') || '[]');
+                this.books = JSON.parse(localStorage.getItem('book'));
+                this.quantity = JSON.parse(localStorage.getItem('qty'));
+                this.total = JSON.parse(localStorage.getItem('total'));
+                console.log(this.total)
+                console.log(this.books)
         }
 }
 </script>
@@ -60,11 +64,11 @@ export default {
                                                                                                 class="whitespace-nowrap px-6 py-4 font-medium">
                                                                                                 {{ books.name }}</td>
                                                                                         <td class="whitespace-nowrap px-6 py-4">
-                                                                                                1</td>
+                                                                                                {{ quantity }}</td>
                                                                                         <td class="whitespace-nowrap px-6 py-4">
                                                                                                 ${{ books.price }}</td>
                                                                                         <td class="whitespace-nowrap px-6 py-4">
-                                                                                                ${{ books.price }}</td>
+                                                                                                ${{ total }}</td>
                                                                                 </tr>
                                                                         </tbody>
                                                                 </table>

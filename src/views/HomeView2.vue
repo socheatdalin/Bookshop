@@ -44,7 +44,7 @@ export default {
                 </div>
                 <div class="booklist">
                         <div class="inforn   ">
-                                <div class="book border border-black relative " v-for="book in books" :key="book._id">
+                                <div class="book border border-black relative " v-for="book in books.slice(0, 6)" :key="book._id">
                                         <div>
                                                 <img :src="book.imageUrl" alt="" class=" logo border rounded mx-auto">
                                            </div>
