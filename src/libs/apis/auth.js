@@ -6,6 +6,7 @@ var auth = {
                                 credentials: "include",
                                 header:{
                                         "Content-type": "application/json",
+                                        origin: "https://dalin-bookshop-api.onrender.com" 
                                 }
                         });
                         const result = await res.json();
