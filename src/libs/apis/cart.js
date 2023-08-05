@@ -5,7 +5,7 @@ var Cart = {
                   credentials: "include",
                   headers: {
                     "Content-type": "application/json",
-                    Origin: "https://dalin-bookshop-api.onrender.com",
+                    
                   },
                 });
             

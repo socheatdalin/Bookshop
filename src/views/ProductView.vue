@@ -49,12 +49,12 @@ export default {
                                 </form>       
                         </div>
                 </div>
-                <div class="d-flex mx-5 py-3" v-for="category in categories" :key="category._id">
+                <div class="d-flex mx-5 py-3">
                         <button class="genre">All</button>
                         <button class="genre">Action</button>
                         <button class="genre">Adventure</button>
                         <button class="genre">Comedy</button>
-                        <button class="genre" @click="onClick(category._id)">Drama</button>
+                        <button class="genre" >Drama</button>
                         <button class="genre">Fantasy</button>
                         <button class="genre">Historical</button>
                         <button class="genre">Horror</button>
@@ -73,7 +73,7 @@ export default {
                                         </div>
                                         <h1 class="text-center mt-5 font-semibold text-xl">{{ book.name }}</h1>
                                         <div class="text-xl">
-                                                <h4 class="price">Price:</h4>
+                                                <h4 class="price">Price:${{ book.price }}</h4>
                                                 <p class="see" @click="gotodetail(book._id)">see more</p>
                                                 
                                         </div>
