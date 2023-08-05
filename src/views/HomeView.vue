@@ -3,7 +3,6 @@
 import HeaderView from '../components/HeaderView.vue'
 // import Header2 from '../components/Header2.vue'
 import bookapi from '../libs/apis/book'
-import authApi from '../libs/apis/auth'
 import FooterView from '../components/FooterView.vue'
 
 
@@ -15,7 +14,7 @@ export default {
         data(){
                 return{
                         books:[],
-                        auth:[],
+                        
                 }
         },
         methods:{
@@ -31,7 +30,6 @@ export default {
         },
         async mounted(){
                 this.books = await bookapi.all()
-                this.auth = await authApi.getMe()
         }
   
 }
