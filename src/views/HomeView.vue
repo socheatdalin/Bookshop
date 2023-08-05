@@ -1,7 +1,6 @@
 <script >
 
 import HeaderView from '../components/HeaderView.vue'
-// import Header2 from '../components/Header2.vue'
 import bookapi from '../libs/apis/book'
 import FooterView from '../components/FooterView.vue'
 
