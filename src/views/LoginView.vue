@@ -23,7 +23,7 @@ export default {
                                         method: "POST",
                                         headers: {
                                                 "Content-type": "application/json",
-                                                Origin: "https://dalin-bookshop-api.onrender.com",
+                                                
                                         },
                                         body: JSON.stringify({
                                                 email: this.email,

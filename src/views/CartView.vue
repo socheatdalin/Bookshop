@@ -13,6 +13,7 @@ export default {
                         books: [],
                         quantity:[],
                         carts:[],
+                        total:[],
                         cartId: this.$route.params.Cid,
                 }
         },
@@ -42,10 +43,13 @@ export default {
         // },
         async mounted() {
                 this.books = await bookapi.all();
-                // this.books = JSON.parse(localStorage.getItem('book'));
-                // this.quantity = JSON.parse(localStorage.getItem('qty'));
-                this.carts = await CartApi.all()
-                // console.log(this.books)
+                this.books = JSON.parse(localStorage.getItem('book'));
+                this.quantity = JSON.parse(localStorage.getItem('qty'));
+                this.total = this.quantity * this.books.price
+                localStorage.setItem('total',JSON.stringify(this.total))    
+                this.total = JSON.parse(localStorage.getItem('total'));
+                console.log(this.total)
+                console.log(this.books)
         }
 
 }
@@ -72,17 +76,13 @@ export default {
                                                                 </tr>
                                                         </thead>
                                                         <tbody>
-                                                                <tr class="" v-for="cart in carts" :key="cart._id">
+                                                                <tr class="" >
                                                                         <td class="whitespace-nowrap px-5 py-4 font-medium">
-                                                                                <!-- <img :src="books.imageUrl" alt="" class="w-32 h-48"> -->
+                                                                                <img :src="books.imageUrl" alt="" class="w-48 h-48">{{ books.name }}
                                                                         </td>
-                                                                      
-                                                                        <!-- <td class="whitespace-nowrap px-6 py-4">${{ books.price }}</td>
-                                                                        <td class="whitespace-nowrap px-6 py-4">${{books.price}}</td> -->
-                                                                        <td class="whitespace-nowrap px-6 py-4" v-for="book in cart?.books"  :key="book._id" >{{ book.name}}</td>
-                                                                        <td class="whitespace-nowrap px-6 py-4">{{ cart.quantity }}</td>
-                                                                        <td class="whitespace-nowrap px-6 py-4">${{ cart.price }}</td>
-                                                                        <td class="whitespace-nowrap px-6 py-4">${{cart.price}}</td>
+                                                                       <td class="whitespace-nowrap px-6 py-4">{{ quantity }}</td>
+                                                                        <td class="whitespace-nowrap px-6 py-4">${{ books.price }}</td>
+                                                                        <td class="whitespace-nowrap px-6 py-4">${{total}}</td>
                                                                         <td class=" px-6 py-4">
                                                                                 <svg xmlns="http://www.w3.org/2000/svg"
                                                                                         fill="none" viewBox="0 0 24 24"
@@ -102,12 +102,8 @@ export default {
                 </div>
                 <div>
                         <div class="flex justify-between border-t border-black m-3 my-5">
-                                <h3 class="font-bold text-lg m-3">Subtotal</h3>
-                                <p class="mx-5">${{books.price }}</p>
-                        </div>
-                        <div class="flex justify-between border-t border-black m-3 my-5">
                                 <h3 class="font-bold text-lg m-3">Total</h3>
-                                <p class="mx-5">${{ books.price}}</p>
+                                <p class="mx-5">${{ total}}</p>
                         </div>
                 </div>
                 <div class="flex justify-end mx-24">
